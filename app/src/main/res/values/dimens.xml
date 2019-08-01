@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dummy_field_height">25dp</dimen>
+    <dimen name="news_column_news_left_right_padding">20dp</dimen>
+    <dimen name="dummy_channel_name_top">20dp</dimen>
+    <dimen name="dummy_field_title_height">30dp</dimen>
+    <dimen name="dummy_column_margin_4">30dp</dimen>
+    <dimen name="dummy_first_item_margin_top">5dp</dimen>
+    <dimen name="dummy_column_margin_3">100dp</dimen>
+    <dimen name="dummy_title_other_margin_top">7dp</dimen>
+    <dimen name="dummy_column_margin_2">5dp</dimen>
+</resources>

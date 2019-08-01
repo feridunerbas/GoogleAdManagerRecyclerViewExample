@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".activity.MainActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:scrollbars="vertical"
+    <TextView
+            android:id="@+id/textViewRegular"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#dcdcdc"
+            android:padding="20dp"
+            android:text="@string/regular_example"/>
+
+    <TextView
+            android:id="@+id/textViewPreload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#dcdcdc"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/preload_example"/>
+
+    <TextView
+            android:id="@+id/textViewPreloadInParallel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#dcdcdc"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/preload_in_parallel"/>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

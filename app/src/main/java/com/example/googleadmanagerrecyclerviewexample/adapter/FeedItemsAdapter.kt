@@ -10,7 +10,8 @@ import com.example.googleadmanagerrecyclerviewexample.model.FeedModel
 import com.example.googleadmanagerrecyclerviewexample.adapter.viewHolder.AdViewHolder
 import com.example.googleadmanagerrecyclerviewexample.adapter.viewHolder.FeedViewHolder
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-
+import com.example.googleadmanagerrecyclerviewexample.adapter.viewHolder.ShimmerViewHolder
+import com.example.googleadmanagerrecyclerviewexample.model.ShimmerItemModel
 
 
 class FeedItemsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -20,7 +21,8 @@ class FeedItemsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
             0 -> FeedViewHolder(parent)
-            else -> AdViewHolder(parent)
+            1 -> AdViewHolder(parent)
+            else -> ShimmerViewHolder(parent)
         }
     }
 
@@ -31,8 +33,10 @@ class FeedItemsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemViewType(position: Int): Int {
         if(items[position] is FeedModel){
             return 0
+        }else if(items[position] is FeedAdModel){
+            return 1
         }
-        return 1
+        return 2
 
     }
 
@@ -45,6 +49,9 @@ class FeedItemsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             (holder as? AdViewHolder)?.bind(it)
             (holder.itemView.layoutParams as? StaggeredGridLayoutManager.LayoutParams)?.isFullSpan = it.ad.videoController.hasVideoContent()
 
+        }
+        (model as? ShimmerItemModel)?.let {
+            (holder as? ShimmerViewHolder)?.bind(it)
         }
 
     }
