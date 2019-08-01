@@ -1,4 +1,4 @@
-package com.example.googleadmanagerrecyclerviewexample
+package com.example.googleadmanagerrecyclerviewexample.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,9 +6,14 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.googleadmanagerrecyclerviewexample.*
+import com.example.googleadmanagerrecyclerviewexample.adapter.FeedItemsAdapter
+import com.example.googleadmanagerrecyclerviewexample.adapter.decoration.RecyclerViewDecoration
+import com.example.googleadmanagerrecyclerviewexample.model.FeedAdModel
+import com.example.googleadmanagerrecyclerviewexample.model.FeedItem
+import com.example.googleadmanagerrecyclerviewexample.model.FeedModel
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
-import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest
 import com.google.android.gms.ads.formats.NativeAdOptions
 import com.google.android.gms.ads.formats.UnifiedNativeAd
@@ -64,11 +69,15 @@ class MainActivity : AppCompatActivity() {
     private fun setUpRecyclerView(){
         recyclerView = findViewById(R.id.recyclerView)
         layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-        adapter =  FeedItemsAdapter()
+        adapter = FeedItemsAdapter()
 
         recyclerView?.layoutManager = layoutManager
         recyclerView?.adapter = adapter
-        recyclerView?.addItemDecoration(RecyclerViewDecoration(this))
+        recyclerView?.addItemDecoration(
+            RecyclerViewDecoration(
+                this
+            )
+        )
     }
 
     private fun createDataSource(){

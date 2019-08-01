@@ -1,8 +1,17 @@
-package com.example.googleadmanagerrecyclerviewexample
+package com.example.googleadmanagerrecyclerviewexample.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.googleadmanagerrecyclerviewexample.adapter.diff.FeedDiffCallback
+import com.example.googleadmanagerrecyclerviewexample.model.FeedAdModel
+import com.example.googleadmanagerrecyclerviewexample.model.FeedItem
+import com.example.googleadmanagerrecyclerviewexample.model.FeedModel
+import com.example.googleadmanagerrecyclerviewexample.adapter.viewHolder.AdViewHolder
+import com.example.googleadmanagerrecyclerviewexample.adapter.viewHolder.FeedViewHolder
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+
+
 
 class FeedItemsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items = ArrayList<FeedItem>()
@@ -34,12 +43,19 @@ class FeedItemsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         (model as? FeedAdModel)?.let {
             (holder as? AdViewHolder)?.bind(it)
+            (holder.itemView.layoutParams as? StaggeredGridLayoutManager.LayoutParams)?.isFullSpan = it.ad.videoController.hasVideoContent()
+
         }
 
     }
 
     fun updateDataSource(newItems: ArrayList<FeedItem>) {
-        val diffResult = DiffUtil.calculateDiff(FeedDiffCallback(this.items, newItems))
+        val diffResult = DiffUtil.calculateDiff(
+            FeedDiffCallback(
+                this.items,
+                newItems
+            )
+        )
         items.clear()
         items.addAll(newItems)
         diffResult.dispatchUpdatesTo(this)

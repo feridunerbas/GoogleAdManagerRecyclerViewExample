@@ -1,6 +1,7 @@
-package com.example.googleadmanagerrecyclerviewexample
+package com.example.googleadmanagerrecyclerviewexample.adapter.diff
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.googleadmanagerrecyclerviewexample.model.FeedItem
 
 class FeedDiffCallback(private var newItems: ArrayList<FeedItem>, private var oldItems: ArrayList<FeedItem>) : DiffUtil.Callback() {
 

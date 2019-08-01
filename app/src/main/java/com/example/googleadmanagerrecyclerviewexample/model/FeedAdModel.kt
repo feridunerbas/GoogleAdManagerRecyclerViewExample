@@ -1,4 +1,4 @@
-package com.example.googleadmanagerrecyclerviewexample
+package com.example.googleadmanagerrecyclerviewexample.model
 
 import com.google.android.gms.ads.formats.UnifiedNativeAd
 import java.util.*

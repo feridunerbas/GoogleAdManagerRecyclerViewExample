@@ -1,4 +1,4 @@
-package com.example.googleadmanagerrecyclerviewexample
+package com.example.googleadmanagerrecyclerviewexample.extension
 
 
 fun String.loremIpsum(): String{
